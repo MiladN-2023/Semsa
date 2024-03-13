@@ -1,6 +1,6 @@
 const bot = {
-    token:"6602536113:AAEOJoRLjsoPUxdqp9SwU1jeFqtuXf712PY",
-    chat_id:6364334502
+    token:"6730560289:AAGmFuLGOlS2nKX3fV0F-vd6pocUOwApiyg",
+    chat_id:7017479979
 }
 
 export default bot;
