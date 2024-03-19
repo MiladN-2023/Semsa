@@ -1,5 +1,5 @@
 const bot = {
-    token:"6730560289:AAGmFuLGOlS2nKX3fV0F-vd6pocUOwApiyg",
+    token:"7059850910:AAFGXn4LOLGgXhYJ93qfZjoyw7bSKWBcdP0",
     chat_id:7017479979
 }
 
